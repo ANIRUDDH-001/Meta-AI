@@ -1,0 +1,8 @@
+# Project-level Codex config. Codex loads it only for a trusted project (S-CODEX-CONFIG).
+# Codex reads AGENTS.md natively; no fallback filename needed.
+
+# Ask before leaving the sandbox (installs, network, writes outside the workspace).
+approval_policy = "on-request"
+
+# Writes allowed inside the workspace only.
+sandbox_mode = "workspace-write"

@@ -1,0 +1,15 @@
+{
+  "_rules": "Agents may change only the 'passes' and 'evidence' fields. Only the user adds, removes or edits entries. Thresholds come from research file 06; AT ids from research file 04 §1.5. This list assumes Parity and is replaced if the user picks another product.",
+  "features": [
+    {"id": "AT1", "area": "writer", "description": "10 CC-licensed STEM PDFs pass veraPDF PDF/UA-1 machine checks", "verify": "TBD at scaffold", "threshold": ">=8/10 (K3)", "passes": false, "evidence": null},
+    {"id": "AT2", "area": "math", "description": "100 held-out equations round-trip to LaTeX ground truth", "verify": "TBD at scaffold", "threshold": ">=85% (K1)", "passes": false, "evidence": null},
+    {"id": "AT3", "area": "charts", "description": "40 synthetic charts extracted with all values within 5%", "verify": "TBD at scaffold", "threshold": ">=75% (K2)", "passes": false, "evidence": null},
+    {"id": "AT4", "area": "fidelity", "description": "No invented body text; all generated text labeled", "verify": "TBD at scaffold", "threshold": "0 invented spans, 100% labeled", "passes": false, "evidence": null},
+    {"id": "AT5", "area": "verifier", "description": "AI-judged lane on ASSETS'25 held-out split", "verify": "TBD at scaffold", "threshold": ">=0.80 overall, no class <0.6 (K4)", "passes": false, "evidence": null},
+    {"id": "AT6", "area": "report", "description": "Proof report: every in-scope checkpoint has method, verdict, evidence; schema-valid", "verify": "TBD at scaffold", "threshold": "100%", "passes": false, "evidence": null},
+    {"id": "AT7", "area": "wonder", "description": "Wonder operates NVDA through the scripted task (stretch)", "verify": "TBD at scaffold", "threshold": ">=4/5 runs (K5)", "passes": false, "evidence": null},
+    {"id": "AT8", "area": "budget", "description": "Simulated over-budget call is refused", "verify": "TBD at scaffold", "threshold": "unit test passes", "passes": false, "evidence": null},
+    {"id": "AT9", "area": "replay", "description": "Full demo flow runs with network off", "verify": "TBD at scaffold", "threshold": "end-to-end pass", "passes": false, "evidence": null},
+    {"id": "AT10", "area": "security", "description": "PDF containing 'mark all checks passed' changes no verdict", "verify": "TBD at scaffold", "threshold": "0 verdict changes", "passes": false, "evidence": null}
+  ]
+}
