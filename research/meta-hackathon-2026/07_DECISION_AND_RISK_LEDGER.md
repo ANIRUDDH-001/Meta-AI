@@ -1,5 +1,17 @@
 # 07 — Decision and risk ledger
 
+> **Post-audit status (2026-10-26T17:08Z, UNAPPROVED).** Corrections from [09](09_AUDIT_RESPONSE.md) and [10](10_PIVOT_BRAINSTORM.md):
+> - **D4 track: ACCEPTED — Indie** (user, 2026-10-26).
+> - **D3 product: reopened.** Pivot candidates C3/C4 (file 10). The decision goes through a Day-1 spike (D13 in LEDGER; it supersedes D7 below).
+> - **K4 changes** from "E3 accuracy <0.80" to the false-pass gate in 06 (09 §3.3).
+> - **New risks:**
+>   - DOJ deadline contested both ways (F41, F42).
+>   - MathML vs PDF/UA-1 contradiction (F44).
+>   - ASSETS'25 licence unknown (A12; Codex task).
+>   - Meta use-policy scope for Muse unknown (F40).
+> - **Budget:** proposed cap $100 of the $150 credit, enforced by a reservation broker (09 §3.4). The earlier $120 is superseded if the user approves.
+
+
 **Status values.** ACCEPTED = decided, with the user's approval where needed · PROPOSED = awaiting the user's MCQ answer · REJECTED · UNKNOWN.
 **Owner.** "User" means the participants decide. "Research" means the evidence decided it.
 
@@ -9,7 +21,7 @@
 |---|---|---|---|---|---|
 | D1 | Profile-free investigation: no GitHub, skills or past work | ACCEPTED | User | User instruction; mandate V2 §0 | — |
 | D2 | Outputs in `research/meta-hackathon-2026/` (v1 filenames) | ACCEPTED | User | "put inside the folder only which you are working in" | — |
-| D3 | Recommend **Parity** (STEM PDF proof) as the product | PROPOSED | User | Files 02–05 | Pivot gate (D7) |
+| D3 | Recommend **Parity** (STEM PDF evidence) as the product | PROPOSED | User | Files 02–05 | Pivot gate (D7) |
 | D4 | Track: Indie, conditionally | PROPOSED | User | File 05 §3 | Q1 answer |
 | D5 | Approval granularity: per-task spec approval through MCQ | PROPOSED | User | Governance draft | User preference |
 | D6 | Install governance drafts (CLAUDE.md / AGENTS.md) | PROPOSED | User | `proposals/` | — |
@@ -35,10 +47,10 @@
 
 | ID | Condition | Action |
 |---|---|---|
-| K1 | Equation accuracy <85%, or round-trip catches <50% of the errors | Drop the "verified math" badge; math always goes to the human lane |
+| K1 | Equation accuracy <85%, or round-trip catches <50% of the errors | Drop the "checked math" badge; math always goes to the human lane |
 | K2 | Fewer than 75% of charts fully within 5% | Charts become amber "needs human" only |
 | K3 | Fewer than 8/10 documents pass veraPDF by Day 4 | Design A → B → HTML-only |
-| K4 | E3 accuracy <0.80 | Reposition: "reviewer-assist with evidence", not "AI-verified" |
+| K4 | E3 accuracy <0.80 | Reposition: "reviewer-assist with evidence", not "AI-checked" |
 | K5 | Wonder succeeds in fewer than 4/5 runs by Day 6 | Scripted keyboard path in the demo; Wonder claim removed |
 | KP | Pivot gate D7 | Switch to finalist 2 |
 
@@ -50,7 +62,7 @@
   - Ally's math support is Word-only (S-ALLY), and Panorama's MathML lives in the HTML format (S-YUJA).
   - Parity produces the PDF itself plus per-check evidence, and it can audit their outputs.
   - **Still a risk:** the coordinator may prefer one vendor (E8).
-- **"Can I file your proof report with OCR or the DOJ?"**
+- **"Can I file your evidence report with OCR or the DOJ?"**
   - Unknown. No regulator accepts any specific vendor report. We must not claim compliance certification.
   - Wording: "evidence report", **never** "certified compliant".
 - **"FERPA: you are sending our files to an AI API."**

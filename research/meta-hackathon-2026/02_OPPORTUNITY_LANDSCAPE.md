@@ -1,5 +1,10 @@
 # 02 — Opportunity landscape (problem-first)
 
+> **Post-audit status (2026-10-26T17:08Z, UNAPPROVED).** Corrections from [09](09_AUDIT_RESPONSE.md) and [10](10_PIVOT_BRAINSTORM.md):
+> - A11: this landscape makes **no claim of a global optimum**. Nine hypotheses were researched and four only desk-screened (F36).
+> - New candidates C3 (blindfolded web-accessibility agent) and C4 (video privacy guard) are in file 10. They were not part of this landscape's search.
+
+
 Method: I started from customer problems and priced workflows, and only then asked where a Meta model *changes what a product can do*. That covers 13 hypotheses across 11 sectors. Nine were researched with evidence searches. Four were screened at desk stage with **no** evidence search (LEDGER F36), and they are marked that way: their elimination reasons are INFERENCE only. Source IDs refer to [`sources.jsonl`](sources.jsonl).
 
 ## 1. Longlist at a glance
@@ -54,7 +59,7 @@ Method: I started from customer problems and priced workflows, and only then ask
 - **Demo.** See file 04 §1.6. Everything shown is live: the untagged→tagged run, the veraPDF output, and the screen-reader playback.
 - **Kill evidence.**
   - K1–K5 (file 07).
-  - Coordinators say per-check proof would not change their purchasing (E8).
+  - Coordinators say per-check evidence would not change their purchasing (E8).
   - An incumbent already attaches evidence to the human-judgment checks. Allyant's public pages show pass/fail/warning counts and checkpoints, but no evidence per check (S-ALLYANT-AI). Their trial would settle it.
 - **Why it might be fundamentally unattractive.** Edu procurement is slow and often bundled into the LMS (INFERENCE). Incumbents can add LLM checks (file 07 red-team).
 
@@ -143,4 +148,4 @@ CMMS onboarding cost of $5K–80K comes only from vendor blogs (S-CMMS). Buyers 
 
 - No customer contact has been made (none is authorized). There is no willingness-to-pay data beyond list prices.
 - How many Title II entities hold STEM-heavy PDF backlogs: UNKNOWN.
-- Whether a proof report changes purchasing: UNKNOWN. E8 tests it.
+- Whether a evidence report changes purchasing: UNKNOWN. E8 tests it.

@@ -1,5 +1,16 @@
 # 04 — Finalist product briefs
 
+> **Post-audit status (2026-10-26T17:08Z, UNAPPROVED).** Corrections from [09](09_AUDIT_RESPONSE.md) and [10](10_PIVOT_BRAINSTORM.md):
+> - **Terminology:** "proof" → "evidence"; `ProofReport` → `EvidenceReport`; "verified" → "checked" (A23). A hash identifies an input; it does not show correctness.
+> - **Every claim carries an evidence class:** MACHINE / OBSERVED / MODEL / HUMAN, plus an independence level L1–L4 (09 §3.1–3.2).
+> - **Claim 2 (MathML) is rescoped to the HTML twin.** AT1 gates on PDF/UA-1, where math is a `Formula` tag with alt text; MathML in PDF needs PDF 2.0 (F44, A08).
+> - **AT1 wording:** "N of M machine checks passed (veraPDF x.y, PDF/UA-1)", never "compliant" (A03).
+> - **Cost:** report all-in cost per accepted document, p50/p95, from measured usage (A15).
+> - **Redaction finalist:** a full-frame leak check on every output frame (A16).
+> - **Deadline risk:** the DOJ dates are contested both ways (F41, F42).
+> - **Status:** this brief is superseded as the lead candidate by the file 10 pivot candidates, pending the user's choice.
+
+
 Four finalists, ranked. Scores and ranges are in file 05. Every number below is either cited (source ID) or labeled INFERENCE with its assumptions. The product name "Parity" is a working name and **needs approval**.
 
 ---
@@ -10,7 +21,7 @@ Four finalists, ranked. Scores and ranges are in file 05. Every number below is 
 Public universities and agencies must make course and public documents conform to WCAG 2.1 AA by **2027-04-26** (≥50K population) or **2028-04-26** (S-FR). STEM documents are the hardest case: equations, charts and tables. The regulator says gen-AI "does not yet reliably automate" remediation (S-FR, 91 FR 20907). Incumbents answer with "trust our AI" (file 03).
 
 Parity answers with **evidence attached to every check**:
-- **Machine-verified:** the veraPDF Matterhorn machine set.
+- **Machine-checked:** the veraPDF Matterhorn machine set.
 - **AI-judged with visible evidence:** the human-judgment set. Evidence means render-and-compare images, a text diff, or re-plotted charts.
 - **Routed to a human** when confidence is low.
 
@@ -24,23 +35,23 @@ On top of the checks, Parity reports **Information Parity**: whether a non-visua
 
 All four are hypotheses until E1/E3/E5/E6 run and the competitor trial is inspected.
 
-**Customer outcome (one sentence).** An accessibility office remediates a STEM PDF in minutes, not hours, and gets an auditable report showing what was verified, how, and what still needs a human.
+**Customer outcome (one sentence).** An accessibility office remediates a STEM PDF in minutes, not hours, and gets an auditable report showing what was checked, how, and what still needs a human.
 
 **Conditional or unverified dimensions:**
 - every accuracy figure (E1–E5)
 - willingness to pay (E8)
-- whether a proof report changes purchasing (E8)
+- whether a evidence report changes purchasing (E8)
 - the track (file 05)
 
 ### 1.2 Customer journey
 1. **Trigger:** a faculty upload, an accommodation request, or the backlog sweep before the deadline.
 2. Coordinator drops in a PDF, or a folder. A batch API comes in H2.
 3. Parity tags the PDF and builds a MathML HTML twin. Each check carries a status:
-   - green: machine-verified
-   - blue: AI-verified, with evidence
+   - green: machine-checked
+   - blue: AI-checked, with evidence
    - amber: needs a human
 4. Coordinator reviews only the amber items, with the evidence side-by-side, then approves or overrides. Every decision is logged.
-5. Exports: an accessible PDF, the HTML twin, and a proof report (JSON + human-readable). The proof report is the artifact the coordinator files for compliance.
+5. Exports: an accessible PDF, the HTML twin, and a evidence report (JSON + human-readable). The evidence report is the artifact the coordinator files for compliance.
 6. **Repeat value:** a re-uploaded revision re-runs only the changed pages (content hash). The audit history accumulates.
 
 ### 1.3 Two solution designs compared
@@ -57,7 +68,7 @@ All four are hypotheses until E1/E3/E5/E6 run and the competitor trial is inspec
 
 ```
                 ┌──────────── Control plane ─────────────┐
- PDF upload ──▶ │ Job API ─ Orchestrator (state machine) │──▶ Proof report / exports
+ PDF upload ──▶ │ Job API ─ Orchestrator (state machine) │──▶ Evidence report / exports
                 │   budget guard · cost ledger · replay  │
                 └──┬────────────┬───────────┬────────────┘
    Data plane:     ▼            ▼           ▼
@@ -94,7 +105,7 @@ All four are hypotheses until E1/E3/E5/E6 run and the competitor trial is inspec
 **Data contracts (versioned JSON Schema):**
 - `DocumentModel`: pages → blocks{id, type, bbox, order, text, latex, alt, long_desc, table, chart_data, confidence}
 - `CheckResult`: {check_id (Matterhorn ID), method machine|ai|human, verdict pass|fail|needs_human, confidence, evidence[]}
-- `ProofReport`: doc SHA-256, pipeline version, model IDs, prompt hashes, results[], human decisions[]
+- `EvidenceReport`: doc SHA-256, pipeline version, model IDs, prompt hashes, results[], human decisions[]
 
 **Operability:**
 - Idempotency key = (doc SHA-256, pipeline version, model ID, prompt hash).
@@ -117,7 +128,7 @@ All four are hypotheses until E1/E3/E5/E6 run and the competitor trial is inspec
 | AT3 | 40 synthetic charts with known data | ≥75% with all values within 5% (K2) |
 | AT4 | Text fidelity | 0 invented body-text spans (diff against the text layer); 100% of generated text labeled |
 | AT5 | ASSETS'25 held-out split | Verifier accuracy ≥0.80, confusion matrix reported (K4) |
-| AT6 | Proof report | Every in-scope checkpoint has a method, a verdict and an evidence pointer; JSON-schema valid |
+| AT6 | Evidence report | Every in-scope checkpoint has a method, a verdict and an evidence pointer; JSON-schema valid |
 | AT7 | Wonder tester, stretch | ≥4/5 successful runs of the scripted task (K5) |
 | AT8 | Budget guard | A simulated over-budget call is refused (unit test) |
 | AT9 | Replay | The full demo runs with the network off |
@@ -129,13 +140,13 @@ All four are hypotheses until E1/E3/E5/E6 run and the competitor trial is inspec
 |---|---|---|---|
 | 0:00–0:20 | **Cold open.** Black screen; NVDA reads a real calculus PDF and it comes out as garbage ("x two plus … image … image"). Caption: *This is what a blind student hears.* Then the date 26 April 2027 and the DOJ quote. | Real NVDA audio, screen-recorded | Pre-recorded clip (it is a recording anyway) |
 | 0:20–0:35 | Title card: **"Parity — accessibility you can prove."** The PDF is dropped in. | Live UI | — |
-| 0:35–1:20 | Regions light up as the pipeline streams. An equation becomes MathML with a "round-trip verified" badge (rendered side-by-side). A chart becomes a table with a "re-plot matches" badge. One figure goes **amber**, to the human lane. | Live Meta calls, real outputs | Replay mode from cached responses (AT9) |
-| 1:20–1:50 | **Proof report.** Machine checks pass (veraPDF output shown). AI-judged checks show their evidence. Information Parity before → after, e.g. 38% → 96%: **placeholder, to be measured (E5)**. | Live veraPDF run; measured numbers only | Cached report |
+| 0:35–1:20 | Regions light up as the pipeline streams. An equation becomes MathML with a "round-trip checked" badge (rendered side-by-side). A chart becomes a table with a "re-plot matches" badge. One figure goes **amber**, to the human lane. | Live Meta calls, real outputs | Replay mode from cached responses (AT9) |
+| 1:20–1:50 | **Evidence report.** Machine checks pass (veraPDF output shown). AI-judged checks show their evidence. Information Parity before → after, e.g. 38% → 96%: **placeholder, to be measured (E5)**. | Live veraPDF run; measured numbers only | Cached report |
 | 1:50–2:30 | **The screen-reader tester.** Wonder opens the fixed document, navigates by keyboard, reaches the equation, and NVDA reads it correctly. Split screen: the agent's actions next to the Speech Viewer. | Live or recorded live run | Scripted keyboard path (K5) |
 | 2:30–2:50 | **Scale and honesty.** Measured cost per page vs $3–8/page manual (S-ASU, S-OSU-SUPPLIERS). Accuracy on a public benchmark (E3). What still goes to humans. | Measured figures only | — |
-| 2:50–3:00 | Close: "Every accessible document should come with proof." Credits: what we built during the event, and the OSS we stand on (R4). | — | — |
+| 2:50–3:00 | Close: "Every accessible document should show its evidence." Credits: what we built during the event, and the OSS we stand on (R4). | — | — |
 
-Story spine: **a harm you can hear → a deadline → a regulator that does not trust AI → proof → a blind-user agent confirms → honest numbers.** Hackathon advice sources agree on a story-first structure, a backup recording and cached responses (S-HACK-TIPS).
+Story spine: **a harm you can hear → a deadline → a regulator that does not trust AI → evidence → a blind-user agent confirms → honest numbers.** Hackathon advice sources agree on a story-first structure, a backup recording and cached responses (S-HACK-TIPS).
 
 ### 1.7 Economics (INFERENCE; assumptions explicit)
 - **Image-token accounting for Spark: UNKNOWN.** The assumption is about 1.5–3K input tokens and about 1.5K output tokens per page per pass.
@@ -153,7 +164,7 @@ Story spine: **a harm you can hear → a deadline → a regulator that does not 
 - **Customer pricing hypothesis** (not evidence): $0.50–2 per page against $3–25 manual. Inference cost is under 10% of price. Human review time stays with the customer's own staff.
 
 ### 1.8 Acquisition path (hypotheses)
-1. **Wedge:** a free "audit any PDF" proof report that also works on other vendors' output. This positions Parity as the neutral auditor and makes it easy to share.
+1. **Wedge:** a free "audit any PDF" evidence report that also works on other vendors' output. This positions Parity as the neutral auditor and makes it easy to share.
 2. **Paid:** remediation per page or per seat for accessibility offices.
 3. **Pilot:** one university office or one city before 2027-04-26.
 4. **Distribution later:** LMS integrations (Canvas and similar).
@@ -164,9 +175,9 @@ Channels such as accessibility listservs and conferences are not verified (UNKNO
 
 | Horizon | Scope | Exit criteria |
 |---|---|---|
-| **H1 Competition (by Nov 4)** | One workflow end-to-end: STEM PDF → tagged PDF + MathML HTML + proof report + review lane. The Wonder tester is a stretch. Public benchmark numbers. | AT1–AT10. Demo recorded. New-work disclosure. |
-| **H2 Pilot (Nov 2026 → Apr 2027)** | Batch API, Canvas/SharePoint sync, reviewer roles, audit trail, Glimmer self-host for FERPA-sensitive files, SSO. Measure the precision of "verified" labels against an expert audit. | One institution, measured hours saved, zero false "verified" findings on audited samples |
-| **H3 Platform** | Proof layer for all content: slides, Word, video (AD and captions via Spark video + Voice Transcribe, absorbing finalist 3), web. Certify third-party remediations. Agent-readable documents (S-OPENAI-ATLAS). EU Accessibility Act: **UNVERIFIED this session.** | Only once H2 shows demand |
+| **H1 Competition (by Nov 4)** | One workflow end-to-end: STEM PDF → tagged PDF + MathML HTML + evidence report + review lane. The Wonder tester is a stretch. Public benchmark numbers. | AT1–AT10. Demo recorded. New-work disclosure. |
+| **H2 Pilot (Nov 2026 → Apr 2027)** | Batch API, Canvas/SharePoint sync, reviewer roles, audit trail, Glimmer self-host for FERPA-sensitive files, SSO. Measure the precision of "checked" labels against an expert audit. | One institution, measured hours saved, zero false "checked" findings on audited samples |
+| **H3 Platform** | Evidence layer for all content: slides, Word, video (AD and captions via Spark video + Voice Transcribe, absorbing finalist 3), web. Certify third-party remediations. Agent-readable documents (S-OPENAI-ATLAS). EU Accessibility Act: **UNVERIFIED this session.** | Only once H2 shows demand |
 
 ### 1.10 Risks and kill criteria
 Kill criteria K1–K5 are in file 07. Top risks:

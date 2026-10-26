@@ -1,5 +1,13 @@
 # 06 — Validation experiment designs (NOT executed)
 
+> **Post-audit status (2026-10-26T17:08Z, UNAPPROVED).** Corrections from [09](09_AUDIT_RESPONSE.md) and [10](10_PIVOT_BRAINSTORM.md):
+> - **E1:** add a MathML **structure** check (canonicalised tree comparison) plus near-miss items ("f(x)" vs "f·x"), since two trees can render alike but speak differently (A07).
+> - **E2:** report the **false-checked rate** (a chart marked matching when it is not) as the primary metric.
+> - **E3 redesign (09 §3.3):** split grouped by **base PDF** (dev: 1 per criterion, 7 in total; held-out: 4 per criterion, 28 in total, about 100 documents, touched once). Primary metric: false-pass rate with a Wilson 95% CI. Proposed gate: false-pass ≤0.05 with upper bound ≤0.15 at coverage ≥0.5, otherwise "reviewer-assist". Labels hidden behind random IDs (A22). No competitive claim vs GPT-4-Turbo: at n ≈ 100–125 the CIs overlap (09 §1.1). Licence: evaluation use only; never redistribute the 35 papers (A12).
+> - **E5:** non-circular design. Synthetic documents from a known fact table; questions and answers produced by code (A06).
+> - **These designs belong to Parity-PDF.** The pivot candidates' Day-1 spikes are pre-registered in file 10 §5.
+
+
 **Status.** Every experiment below is a design only. Running any of them needs **separate user approval**. Two things block execution today:
 - (a) Meta credits must be posted and a card attached (R15).
 - (b) The tools must be installed: Docker images for veraPDF, plus pikepdf, pypdfium2, NVDA.
@@ -33,7 +41,7 @@ No results are claimed. All thresholds are **pre-registered here**, before any r
 
 | Field | Design |
 |---|---|
-| Decision | Keep or drop "verified math" in the product and demo |
+| Decision | Keep or drop "checked math" in the product and demo |
 | H1 / H0 | H1: Spark transcribes ≥85% of held-out equations exactly or equivalently, **and** round-trip render-compare catches ≥50% of the errors that remain. H0: below either bar. |
 | Ground truth | (i) 60 **synthetic** random LaTeX equations rendered fresh with fixed seeds, which cannot be in any training set; (ii) 40 crops from CC-BY arXiv papers with their source LaTeX (license checked per paper) |
 | Leakage control | Synthetic set is the primary number. The arXiv set may be memorized, so it is reported separately. |
@@ -47,7 +55,7 @@ No results are claimed. All thresholds are **pre-registered here**, before any r
 
 | Field | Design |
 |---|---|
-| Decision | Keep or drop "verified chart tables" |
+| Decision | Keep or drop "checked chart tables" |
 | Ground truth | 40 synthetic matplotlib charts (bar, line, scatter, grouped) with known data. Random seeds; varied styles, fonts and gridlines. |
 | Baseline | Single-pass extraction vs extraction + re-plot compare (architecture). SAM region masks as a further ablation (E7). |
 | Measures | Share of charts with all values within 5% of the axis range; per-value MAE; detection of injected misreadings |
@@ -58,7 +66,7 @@ No results are claimed. All thresholds are **pre-registered here**, before any r
 
 | Field | Design |
 |---|---|
-| Decision | Is Parity's AI-judged lane accurate enough to label checks "AI-verified", or only "reviewer-assist"? |
+| Decision | Is Parity's AI-judged lane accurate enough to label checks "AI-checked", or only "reviewer-assist"? |
 | Ground truth | ASSETS'25 benchmark: 125 PDFs, 7 criteria, labels P/F/NP/CT (S-ASSETS25). **Check the repo license before use (F22, R6).** |
 | Leakage | The benchmark was published in 2025 and may be in training data. Disclose this. Supplement with 10 fresh PDFs labeled by us, blind to model output. |
 | Baselines | Published numbers: GPT-4-Turbo 0.85, GPT-4o 0.81 (reported, not re-run). Our own run: veraPDF only, which is machine-only and covers fewer criteria. Optional: Gemini via the free tier if quota exists (UNKNOWN). |
@@ -110,18 +118,18 @@ No results are claimed. All thresholds are **pre-registered here**, before any r
 
 ## E8 — Customer discovery (no API cost; the **user** sends messages)
 
-- **Decision.** Does a per-check proof report change buying or adoption?
+- **Decision.** Does a per-check evidence report change buying or adoption?
 - **Method.** Ten accessibility or disability-services coordinators at public institutions. Script:
   1. current workflow
   2. hours per STEM document
   3. what is filed as evidence of compliance
-  4. reaction to a sample proof report
+  4. reaction to a sample evidence report
   5. who signs the purchase
 - **Rules:**
   - Messages go out only after user approval, and the user sends them.
   - No quotes are invented.
   - Interviews are recorded only with consent.
-- **Kill signal.** Six or more of ten say the proof report would not change their decision.
+- **Kill signal.** Six or more of ten say the evidence report would not change their decision.
 
 ## Runner-up check: redaction R1 (only if the pivot gate triggers)
 - **Method.** SAM 3.1 text-prompt tracking on 3 self-filmed 60-second clips (rights clean), at 5 fps (900 frames, about $0.18).

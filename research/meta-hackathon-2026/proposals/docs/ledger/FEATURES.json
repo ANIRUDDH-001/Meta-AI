@@ -1,12 +1,12 @@
 {
-  "_rules": "Agents may change only the 'passes' and 'evidence' fields. Only the user adds, removes or edits entries. Thresholds come from research file 06; AT ids from research file 04 §1.5. This list assumes Parity and is replaced if the user picks another product.",
+  "_rules": "Agents may change only the 'passes' and 'evidence' fields. Only the user adds, removes or edits entries. Thresholds come from research file 06 and 09 §3.3; AT ids from research file 04 §1.5. This list is Parity-PDF's. If D13 picks C3 or C4, the user replaces it with that product's acceptance tests (research file 10). 'evidence' names the evidence class and run_id (PROTOCOLS §10).",
   "features": [
     {"id": "AT1", "area": "writer", "description": "10 CC-licensed STEM PDFs pass veraPDF PDF/UA-1 machine checks", "verify": "TBD at scaffold", "threshold": ">=8/10 (K3)", "passes": false, "evidence": null},
     {"id": "AT2", "area": "math", "description": "100 held-out equations round-trip to LaTeX ground truth", "verify": "TBD at scaffold", "threshold": ">=85% (K1)", "passes": false, "evidence": null},
     {"id": "AT3", "area": "charts", "description": "40 synthetic charts extracted with all values within 5%", "verify": "TBD at scaffold", "threshold": ">=75% (K2)", "passes": false, "evidence": null},
     {"id": "AT4", "area": "fidelity", "description": "No invented body text; all generated text labeled", "verify": "TBD at scaffold", "threshold": "0 invented spans, 100% labeled", "passes": false, "evidence": null},
-    {"id": "AT5", "area": "verifier", "description": "AI-judged lane on ASSETS'25 held-out split", "verify": "TBD at scaffold", "threshold": ">=0.80 overall, no class <0.6 (K4)", "passes": false, "evidence": null},
-    {"id": "AT6", "area": "report", "description": "Proof report: every in-scope checkpoint has method, verdict, evidence; schema-valid", "verify": "TBD at scaffold", "threshold": "100%", "passes": false, "evidence": null},
+    {"id": "AT5", "area": "verifier", "description": "Model-assessed lane on ASSETS'25 held-out split (grouped by base PDF)", "verify": "TBD at scaffold", "threshold": "false-pass <=0.05 with Wilson 95% upper bound <=0.15 at coverage >=0.5 (K4 as revised in research 09 §3.3; needs approval)", "passes": false, "evidence": null},
+    {"id": "AT6", "area": "report", "description": "Evidence report: every in-scope checkpoint has method, verdict, evidence; schema-valid", "verify": "TBD at scaffold", "threshold": "100%", "passes": false, "evidence": null},
     {"id": "AT7", "area": "wonder", "description": "Wonder operates NVDA through the scripted task (stretch)", "verify": "TBD at scaffold", "threshold": ">=4/5 runs (K5)", "passes": false, "evidence": null},
     {"id": "AT8", "area": "budget", "description": "Simulated over-budget call is refused", "verify": "TBD at scaffold", "threshold": "unit test passes", "passes": false, "evidence": null},
     {"id": "AT9", "area": "replay", "description": "Full demo flow runs with network off", "verify": "TBD at scaffold", "threshold": "end-to-end pass", "passes": false, "evidence": null},

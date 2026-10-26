@@ -1,6 +1,6 @@
 # 00 — Rules and source register
 
-Retrieved 2026-10-26, about 13:20–16:30 UTC (18:50–22:00 IST). Every source has a stable ID, and its full record is in [`sources.jsonl`](sources.jsonl). Raw quotes are in [`resources/source_captures.md`](resources/source_captures.md), and the running fact list is in [`LEDGER.md`](LEDGER.md) (F1–F30).
+Round 1 retrieved 2026-10-26 from about 13:20 UTC (first saved capture 13:32 UTC by file mtime) to 14:24 UTC (last file mtime). Round 2 (audit response and pivot research) ran 16:42–16:58 UTC, taken from session transcript timestamps. Earlier wording said "13:20–16:30 UTC"; that was an estimate, not a clock reading (audit A19). Every source has a stable ID, and its full record is in [`sources.jsonl`](sources.jsonl) (106 records by `wc -l`). Raw quotes are in [`resources/source_captures.md`](resources/source_captures.md), and the running fact list is in [`LEDGER.md`](LEDGER.md) (F1–F56).
 
 Evidence labels: **OBSERVED** · **PRIMARY-SOURCE CLAIM** · **THIRD-PARTY REPORT** · **INFERENCE** · **UNKNOWN/BLOCKED**.
 
@@ -40,12 +40,14 @@ Evidence labels: **OBSERVED** · **PRIMARY-SOURCE CLAIM** · **THIRD-PARTY REPOR
 | R21 | Official Rules | S-EV: "Official Rules will be published before the Hackathon begins … and must be accepted" | **UNRESOLVED** — document not located | Yes | IP/licensing, eligibility details | Ask (Q3); check the CV dashboard | Recommendations stay conditional on it. |
 | R22 | Idea pivot after application | Nothing found | **UNRESOLVED** | Yes | Absence of a prohibition ≠ permission | Ask in #questions | Low risk (INFERENCE): the rubric judges the submitted project. |
 | R23 | Dates may change | S-EV: "Dates may be subject to change at Meta's sole discretion" | VERIFIED | Yes | — | Re-check the event page daily | Add it to the daily checklist. |
+| R24 | Meta use policy | S-META-AUP (dev.meta.ai/use-policy/): "Military, warfare, nuclear industries or applications, espionage"; "Operation of critical infrastructure, transportation technologies, or heavy machinery" | OBSERVED, scope UNKNOWN | Probably | The page is labelled **Llama 2** and never names Muse or the Model API | Ask (Q3, with the Official Rules) | Treat as binding. Defence is out on R9 alone ("political or involving war"). |
 
 ## 3. Contradictions and how they are handled
 
 - **C1 — Stage Two weighting.** Mandate v1 §1 reports participant-guide prose saying the criteria are "equally weighted". In the PDF print (S-PG) I found **no such sentence**: only the 30/25/20/25 table. The only "weighted equally" sentence found is on S-EV, and it describes **application review** ("Your project idea … Your technical skill … Both criteria are weighted equally"). The print is clipped, so text could be missing. **Status: UNRESOLVED.** File 05 ranks under both 30/25/20/25 and 25/25/25/25.
 - **C2 — Prize totals.** Headings ($400K Indie, $550K Startup) match the listed places. No conflict.
-- **C3 — Matterhorn counts.** The PDF Association 1.02 document says 87 machine-checkable / 47 human / 2 untestable. Other pages say 89/47 or 89/45/2. We cite 1.02 (S-MATTERHORN) and treat ±2 as noise.
+- **C3 — Matterhorn counts.** The current version is **Matterhorn 1.1** (April 2021), which supersedes 1.02 (S-MATTERHORN-11). It keeps 136 failure conditions. The 87 machine-checkable / 47 human / 2 untestable split is confirmed for **1.02 only** (S-MATTERHORN); we could not extract the 1.1 split, so Codex checks it (09 §6). Other pages say 89/47 or 89/45/2. Cite "Matterhorn 1.1, 136 conditions"; quote the split as "per 1.02" and treat ±2 as noise.
+- **C4 — DOJ deadline is contested in both directions.** DOJ plans substantive rulemaking and SBA Advocacy listed the rule for "rescission, withdrawal, or modification" (S-FR 20905, 20908), while NFB sued to undo the extension (S-NFB-SUIT, filed 2026-05-21, no ruling found). The obligation applies "regardless of the compliance dates" (S-FR 20908).
 
 ## 4. Blocked or partial sources (not bypassed)
 
@@ -57,6 +59,10 @@ Evidence labels: **OBSERVED** · **PRIMARY-SOURCE CLAIM** · **THIRD-PARTY REPOR
 | pdfremediator.apps.ucsd.edu | TLS certificate rejected | Not read. Only its existence is noted. |
 | QyrosXS (AWS Marketplace) | URL not captured | Listed as CLAIMED with URL UNKNOWN. |
 | Official Rules | Not found | Q3. |
+| titleii.org/title-ii-updates | WebFetch ECONNRESET (round 2) | Search summaries only; "no NPRM found as of Oct 12" is THIRD-PARTY. |
+| Matterhorn 1.1 PDF | Text not extractable by the fetch tool | 1.1 split UNCONFIRMED; Codex task. |
+| github.com (ASSETS'25 repo licence) | Claude has no GitHub access (user rule) | Codex task (09 §6). |
+| sebi.gov.in, who.int, webaim.org, Supreme Court judgment | Not fetched (time) | Secondary sources, labelled THIRD-PARTY. |
 
 ## 5. Open questions (user to ask in Discord #questions; I cannot send messages)
 
@@ -70,9 +76,12 @@ Evidence labels: **OBSERVED** · **PRIMARY-SOURCE CLAIM** · **THIRD-PARTY REPOR
 ## 6. Source index
 
 Meta platform: S-MODELS, S-PRICING, S-FILES, S-CU, S-VIDEO, S-SEG, S-WONDER, S-GLIMMER, S-SPARK-OPEN, S-SAM31, S-VB, S-BENCHLIST.
-Regulation and standards: S-FR, S-TXST, S-PSU, S-W3C-125, S-MATTERHORN, S-PDFA-MATH, S-PDFDAYS.
-PDF accessibility market: S-ALLYANT, S-ALLYANT-PR, S-YUJA, S-NEOMED, S-PURDUE, S-EQUIDOX-AUTOTAG, S-AXESSTAG, S-NUTRIENT, S-QYROS, S-ASU, S-ASU-EQ, S-CNI, S-OSU-SUPPLIERS, S-VENNGAGE, S-CMU, S-UCSD.
-Research: S-ASSETS25, S-ITAG, S-PAVE, S-ARXIV-MATHML, S-STEM-ALT, S-RODENT, S-FAILBENCH, S-DQA.
-Other domains: S-3PLAY, S-VERBIT, S-AIMEDIA, S-RECAP, S-REDACT-COST, S-ISED, S-PIMLOC, S-FACIT, S-FISH, S-REL, S-SOP, S-GAUGE, S-CMMS.
+Regulation and standards: S-FR, S-TXST, S-PSU, S-W3C-125, S-MATTERHORN, S-MATTERHORN-11, S-PDFA-MATH, S-PDFDAYS, S-NFB-SUIT, S-META-AUP, S-BERI-LICENSE.
+India and EU drivers: S-AMAR-JAIN, S-SEBI-A11Y, S-EAA-ENF.
+PDF accessibility market: S-ALLYANT, S-ALLYANT-PR, S-ALLYANT-AI, S-CL-USERVERIFY, S-MATHPIX, S-ALLY, S-FRESNO-RFP, S-YUJA, S-NEOMED, S-PURDUE, S-EQUIDOX-AUTOTAG, S-AXESSTAG, S-NUTRIENT, S-QYROS, S-ASU, S-ASU-EQ, S-CNI, S-OSU-SUPPLIERS, S-VENNGAGE, S-CMU, S-UCSD.
+Research: S-ASSETS25, S-ITAG, S-PAVE, S-ARXIV-MATHML, S-STEM-ALT, S-RODENT, S-FAILBENCH, S-DQA, S-INFOEQ-SEARCH.
+Agentic accessibility testing (file 10, C3): S-TASKAUDIT, S-AXNAV, S-AGENTIC-AUDIT, S-AAA-AUDIT, S-SCREENAUDIT, S-USERSIDE-REPAIR, S-TESTSPRITE, S-BROWSERSTACK-A11Y, S-GUIDEPUP, S-WEBAIM-2026, S-DEQUE-57.
+Video privacy (file 10, C4): S-GEOSPY, S-VLM-GEOPRIV, S-VLM-PAI, S-VLM-SHIELD, S-YT-BLUR, S-BGBLUR, S-IG-INDIA, S-WHO-DISAB.
+Other domains: S-3PLAY, S-VERBIT, S-AIMEDIA, S-RECAP, S-REDACT-COST, S-ISED, S-PIMLOC, S-AXON, S-FACIT, S-FISH, S-REL, S-SOP, S-GAUGE, S-CMMS.
 Agents and market: S-OPENAI-ATLAS, S-ROSELLI, S-INFOWORLD, S-GARTNER, S-GAO, S-SILKTIDE-ALT.
-Engineering governance: S-CODEX, S-CC-MEM, S-CC-BP, S-WEASY, S-HACK-TIPS.
+Engineering governance: S-CODEX, S-CODEX-CONFIG, S-CC-MEM, S-CC-MEMORY, S-CC-HOOKS, S-CC-BP, S-ANTH-HARNESS, S-WEASY, S-HACK-TIPS.

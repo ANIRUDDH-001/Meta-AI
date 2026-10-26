@@ -1,5 +1,10 @@
 # 05 — Track and judging sensitivity
 
+> **Post-audit status (2026-10-26T17:08Z, UNAPPROVED).** Corrections from [09](09_AUDIT_RESPONSE.md) and [10](10_PIVOT_BRAINSTORM.md):
+> - **Track: Indie, USER-CONFIRMED** (D4: "yes we are allowed for indie. we are not a startup"). Indie is judged on "creativity, technical ambition, and whether it works" (S-EV). §3's conditional Startup analysis is now history.
+> - Re-scoring under Indie, with the pivot candidates: file 10 §4. Parity-PDF rescoped drops to 7.48 / 7.50 there (from 7.83 here) after the audit shrank its claims.
+
+
 ## 1. Scoring model (published so it can be challenged)
 
 - **Scale.** Each criterion is scored 0–10, as the Stage Two rubric requires (S-PG p8). Every score is **INFERENCE with about ±1.0 uncertainty**. These are not predictions of judge scores, and **no win probability is given**.
@@ -10,18 +15,18 @@
 
 | Finalist | Impact | Meta tooling | Tech depth | Demo | **30/25/20/25** | **25/25/25/25** |
 |---|---|---|---|---|---|---|
-| Parity (STEM PDF proof) | 8.0 | 7.3 | 8.0 | 8.0 | 7.83 | 7.83 |
+| Parity (STEM PDF evidence) | 8.0 | 7.3 | 8.0 | 8.0 | 7.83 | 7.83 |
 | Policy-driven video redaction | 7.0 | 8.5 | 7.5 | 9.0 | **7.98** | **8.00** |
 | Audio description studio | 7.5 | 7.5 | 7.0 | 8.5 | 7.65 | 7.63 |
 | Robot data QA | 6.0 | 8.0 | 8.0 | 7.0 | 7.15 | 7.25 |
 
-Parity's Impact was 8.5 before the Allyant desk check. It is 8.0 now, because a Title-II-positioned validation report already exists (S-ALLYANT-AI), so part of the "proof" story overlaps with an incumbent.
+Parity's Impact was 8.5 before the Allyant desk check. It is 8.0 now, because a Title-II-positioned validation report already exists (S-ALLYANT-AI), so part of the "evidence" story overlaps with an incumbent.
 
 **Reading.** Redaction now leads by **0.15–0.17 under both weightings**. That gap is far inside the ±1 noise. **The rubric estimate does not decide between the top two, and if anything it leans slightly toward redaction.** The recommendation therefore rests on factors outside the rubric, stated openly:
 
 1. **The team's dominant priority is startup-scale commercial potential.** Parity has a dated legal trigger (S-FR) and priced, recurring manual work (S-ASU, S-OSU-SUPPLIERS, S-VENNGAGE). Redaction's largest US buyers get Axon's tool bundled (S-AXON). Parity's story (a blind student cannot read their maths homework) also has broader appeal, which matters for the Viral and Community prizes (INFERENCE).
 2. **Data rights.** Parity can use public CC-licensed PDFs. Redaction needs staged footage, and real footage is sensitive.
-3. **Why-now.** The 2027/2028 compliance dates and the DOJ's own statement that AI is not yet trusted (S-FR) create a specific opening for *proof*. Redaction has no dated trigger.
+3. **Why-now.** The 2027/2028 compliance dates and the DOJ's own statement that AI is not yet trusted (S-FR) create a specific opening for *evidence*. Redaction has no dated trigger.
 4. **Counterweight, honestly stated.** Redaction is the more visual demo and the stronger Meta-tooling story (SAM 3.1 is central). If the team weighs winning the event above business potential, redaction is a defensible pick (MCQ option).
 
 ## 2. Sensitivity: what flips the ranking

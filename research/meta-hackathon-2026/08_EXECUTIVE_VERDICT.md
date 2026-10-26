@@ -1,12 +1,19 @@
 # 08 — Executive verdict
 
+> **Post-audit status (2026-10-26T17:08Z, UNAPPROVED).** Corrections from [09](09_AUDIT_RESPONSE.md) and [10](10_PIVOT_BRAINSTORM.md):
+> - **This verdict is superseded pending the user's choice.** The audit (09) shrank Parity-PDF's claims, and the pivot brainstorm (10) ranks C4 (video privacy guard, 8.50) and C3 (blindfolded web agent, 8.35) above rescoped Parity-PDF (7.48). Those scores are INFERENCE ±1.
+> - **Recommendation now:** a Day-1 discriminating spike between C3 and C4 (10 §5).
+> - **Track:** Indie, user-confirmed.
+> - **Corrections:** the source count was 78, not 74; Matterhorn 1.1 is current; wording is now "evidence", not "proof".
+
+
 Status: **research complete, decision PENDING the user's MCQ answers.** Nothing has been built, called or installed.
 
 ## 1. Recommendation
 
 **Parity — accessibility you can prove, starting with STEM PDFs.** This is a close call (file 05).
 
-- **Customer outcome.** An accessibility office remediates a STEM PDF in minutes rather than hours. It gets an auditable report showing what was verified, how it was verified, and what still needs a human.
+- **Customer outcome.** An accessibility office remediates a STEM PDF in minutes rather than hours. It gets an auditable report showing what was checked, how it was checked, and what still needs a human.
 - **Conditional dimensions.**
   - Every accuracy figure is UNTESTED (E1–E5).
   - Willingness to pay is UNTESTED (E8).
@@ -24,7 +31,7 @@ Status: **research complete, decision PENDING the user's MCQ answers.** Nothing 
 | Dated legal trigger | DOJ Title II rule: WCAG 2.1 AA by **2027-04-26** (≥50K population) and **2028-04-26** (smaller entities) | OBSERVED (S-FR) |
 | The regulator does not trust AI remediation | 91 FR 20907: generative AI "does not yet reliably automate" remediation at scale | OBSERVED (S-FR) |
 | STEM is the hard case | Correspondence quoted in 91 FR 20905 says AI "cannot reliably automate" STEM remediation; the CNI report names math and figures as the main challenge | OBSERVED / THIRD-PARTY |
-| Human judgment is structural | Matterhorn 1.02: 47 of 136 failure conditions need human judgment | PRIMARY (S-MATTERHORN) |
+| Human judgment is structural | Matterhorn (split per 1.02; 1.1 is current, same 136 total): 47 of 136 failure conditions need human judgment | PRIMARY (S-MATTERHORN) |
 | Manual work is priced | $3–25 per page, clusters at $5–8 | THIRD-PARTY (S-ASU, S-OSU-SUPPLIERS, S-VENNGAGE) |
 | Scale | OSU reports hundreds of thousands of PDFs | THIRD-PARTY |
 
@@ -44,7 +51,7 @@ Details are in file 03.
 | # | Claim | Falsified by |
 |---|---|---|
 | A1 | Evidence on the human-judgment checks, not only pass/fail counts | Allyant trial shows the same (D7); E3 <0.80 |
-| A2 | Math as navigable MathML, verified by round-trip | E1 accuracy <85% or catch rate <50% (K1) |
+| A2 | Math as navigable MathML, checked by round-trip | E1 accuracy <85% or catch rate <50% (K1) |
 | A3 | A screen reader operated by an agent confirms the result | E6 <4/5 runs (K5) |
 | A4 | A neutral auditor that can grade any vendor's output | Customer interviews show no demand (E8) |
 | A5 | An outcome metric (Information Parity) rather than rule counts | E5 shows the metric does not separate good from bad documents |
@@ -55,7 +62,7 @@ Details are in file 03.
 
 - **Why now.**
   - The compliance dates are 6 and 18 months away.
-  - The regulator's stated distrust of AI creates demand for *proof*, not more automation.
+  - The regulator's stated distrust of AI creates demand for *evidence*, not more automation.
   - Agents increasingly read the same accessibility tree that screen readers use (S-OPENAI-ATLAS, a primary-source claim), so accessible structure also becomes agent-readable structure.
 - **Why Meta.** Each model is on the critical path, not added for show:
 
@@ -86,7 +93,7 @@ Details are in file 03.
 
 1. **Differentiation collapses.** Allyant's report already carries judgment-check evidence (D7), so Impact falls to about 6.5 and the score to 7.38.
 2. **The PDF writer cannot produce valid PDF/UA in 9 days (K3).** Fall back to the reconstructed PDF, then HTML only. The demo is weaker but survives.
-3. **The AI-judged lane is not accurate enough (K4, E3 <0.80).** It becomes "reviewer-assist". The proof claim weakens.
+3. **The AI-judged lane is not accurate enough (K4, E3 <0.80).** It becomes "reviewer-assist". The evidence claim weakens.
 4. **The Wonder tester is unreliable (K5).** A scripted path replaces it, and the "agent as blind user" moment is lost.
 5. **The anti-project misread (R9).** Judges file it as an "AI for education" tool. Mitigation: no chat, compliance framing in the first 20 seconds.
 6. **Distribution.** Incumbents sit inside the LMS. That is a business risk after the event, not a risk to the event.
@@ -128,15 +135,15 @@ Both weightings are preserved: 30/25/20/25 and 25/25/25/25 (file 05).
 
 The full storyboard, with a live column and a fallback column, is in file 04 §1.6. The story spine:
 
-> a harm you can hear (NVDA reading garbage) → the 2027 deadline → a regulator that does not trust AI → proof attached to every check → an agent operating a screen reader confirms it → honest, measured numbers.
+> a harm you can hear (NVDA reading garbage) → the 2027 deadline → a regulator that does not trust AI → evidence attached to every check → an agent operating a screen reader confirms it → honest, measured numbers.
 
 Placeholders, such as the Information Parity before/after figures, are shown only once measured.
 
 ## 11. Kernel vs platform
 
-- **H1 kernel (by Nov 4).** STEM PDF → tagged PDF + MathML HTML twin + proof report + human review lane; Wonder tester as a stretch.
+- **H1 kernel (by Nov 4).** STEM PDF → tagged PDF + MathML HTML twin + evidence report + human review lane; Wonder tester as a stretch.
 - **H2 (to Apr 2027).** Batch API, LMS sync, self-hosting for FERPA-sensitive files, one pilot.
-- **H3 platform.** A proof layer for all content (slides, Word, video AD and captions, web), certifying third-party remediation.
+- **H3 platform.** An evidence layer for all content (slides, Word, video AD and captions, web), certifying third-party remediation.
 
 ## 12. Next authorized action
 
@@ -157,7 +164,7 @@ All of this needs user approval:
 | No participant profiles, repositories, projects, backgrounds or interests inspected or used | **PASS** | No GitHub or profile URL was fetched. `01` records capacity only. The GitHub MCP failed to connect and was not used. |
 | Ideas came from external problem evidence | **PASS** | All 13 hypotheses in `02` cite external demand sources. Four were screened at desk stage only, and this is disclosed (F36). |
 | Serious commercial alternatives and non-AI workarounds checked | **PASS** | `03`: 14 parity rows, including manual vendors and in-house tooling; the Allyant brochure was read |
-| Every number and capability claim has provenance and uncertainty | **PASS, with disclosed gaps** | Source IDs in `sources.jsonl` (74 lines). Scores labeled INFERENCE ±1. Unverified products listed (F35). |
+| Every number and capability claim has provenance and uncertainty | **PASS, with disclosed gaps** | Source IDs in `sources.jsonl` (78 lines at this snapshot; 106 after round 2 by `wc -l`). Scores labeled INFERENCE ±1. Unverified products listed (F35). |
 | Advantage and novelty are hypotheses | **PASS** | §3 table A1–A5, each with a falsifier. `03` §1.5. |
 | Zero paid usage, product changes or implementation | **PASS** | No Meta API call, no install, no account, no form, no message, no commit. Only research files and one local text extraction of a downloaded brochure. |
 | Meta functionality central; capabilities and credits not assumed | **PASS** | §4. Wonder, SAM and Glimmer use is marked UNTESTED or conditional. The credits need a card and are checked on Day 0. |

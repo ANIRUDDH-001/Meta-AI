@@ -1,5 +1,11 @@
 # 03 — Competitor capability matrix
 
+> **Post-audit status (2026-10-26T17:08Z, UNAPPROVED).** Corrections from [09](09_AUDIT_RESPONSE.md) and [10](10_PIVOT_BRAINSTORM.md):
+> - Matterhorn: 1.1 (April 2021) is current (S-MATTERHORN-11). The 47-human-judgment figure is from 1.02 and is unchecked for 1.1.
+> - CommonLook "User Verifications" are manual (S-CL-USERVERIFY, F39). Our C7/C8 differentiators stay hypotheses until a trial or vendor docs show otherwise. "Not documented" ≠ absent.
+> - Prior art for the pivot candidates (agentic accessibility testing, consumer blur) is in file 10 §3, not in this matrix.
+
+
 **Labels.** **YES-OBS** = observed by us · **CLAIMED** = vendor/author claim · **3P** = third-party report · **PARTIAL** = a source shows limits · **NO-VER** = verified absence · **UNK** = not established. UNK is never read as a competitor weakness.
 
 **What was not done.** No competitor product was run (₹0, read-only), so nothing reaches YES-OBS. Every cell cites a source ID from [`sources.jsonl`](sources.jsonl). The differentiation in our own row is a **hypothesis until the named experiment passes** (file 06).
@@ -13,8 +19,8 @@
 - C4 math → MathML (not just alt text)
 - C5 chart → data table
 - C6 machine conformance checks (PDF/UA / Matterhorn machine set)
-- C7 automated *human-judgment* checks with evidence (Matterhorn's 47)
-- C8 per-check proof report a third party can audit
+- C7 automated *human-judgment* checks with evidence (Matterhorn's 47, per 1.02)
+- C8 per-check evidence report a third party can audit
 - C9 agent actually operates a screen reader on the output
 - C10 information-equivalence score
 - C11 can audit *other vendors'* output
@@ -46,7 +52,7 @@
   - CMU: many PDFs still need manual reading-order and alt-text work (S-CMU).
   - ASU: QA checkpoints are still being developed (S-ASU).
   - The DOJ says gen-AI "does not yet reliably automate" remediation (S-FR).
-- Machine validators cover only the machine-checkable part. **47 of 136** Matterhorn failure conditions need human judgment (S-MATTERHORN).
+- Machine validators cover only the machine-checkable part. **47 of 136** Matterhorn failure conditions need human judgment (split per 1.02, S-MATTERHORN; current version 1.1 keeps 136 conditions, S-MATTERHORN-11; 1.1 split unchecked).
 - Math is handled as alt text, or in an HTML alternative format, rather than as MathML inside the PDF, which gives no Nemeth braille (S-PDFDAYS, S-YUJA, S-ALLY).
 
 - **Allyant desk check, done 2026-10-26 (S-ALLYANT-AI).** CommonLook already sells a per-PDF Validation Report, positioned as Title II compliance evidence, plus a remediation history. **A "compliance report" is therefore not a differentiator.** Their public material does not show:
