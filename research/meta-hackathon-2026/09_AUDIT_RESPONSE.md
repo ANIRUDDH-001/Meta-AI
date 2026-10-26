@@ -117,7 +117,7 @@ Unclassified "verified", "compliant" or "certified" never appears in the UI, rep
 - **Residual risk, stated:** price changes, billing lag, unknown image accounting. No guarantee.
 
 ## 4. Decision framework (PARTIAL)
-The audit says to choose "only after a discriminating experiment". We agree in principle. But Day 1 of the build is 2026-10-28 (07 §5), and every experiment needs posted credits plus a card (R15), so an open-ended wait would cost build days. Proposal, to be approved by MCQ:
+The audit says to choose "only after a discriminating experiment". We agree in principle. But Day 1 of the build is 2026-10-27 (guide p4, "Building period: Oct 27 – Nov 4"; corrected from "2026-10-28 (07 §5)", 12 RT07), and every experiment needs posted credits plus a card (R15), so an open-ended wait would cost build days. Proposal, to be approved by MCQ:
 - **Day-1 gate (≤ 6 h, ≤ $10):**
   - E4-lite on 3 real STEM PDFs, local tools, $0.
   - E1 on 30 synthetic equations.

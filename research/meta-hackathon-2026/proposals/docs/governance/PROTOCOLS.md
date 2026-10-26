@@ -23,7 +23,7 @@ Rollback:     how to undo (branch delete / revert)
 ```
 - An approved spec is copied into its `PLAN.md` task section, so any agent can resume it without the chat.
 - An approved spec covers edits on the task branch.
-- Commit, push and merge are done by the user, or by Codex when the user says so. Never by Claude (AGENTS hard gates).
+- Commits are made by the user, or by Codex when the user says so in that session (D14, D19). Push, merge, tag, release and deploy are done by the user only (D19). Claude never does any of them (AGENTS hard gates).
 - If the work needs a file outside `Files:` or a change of more than about 50% in scope, stop and re-ask.
 
 ## §3 Ledger files
@@ -49,16 +49,16 @@ Rollback:     how to undo (branch delete / revert)
 
 **`DECISIONS.md` entry**
 ```
-## D-14 2026-10-27 — <title>
+## D-21 2026-10-27 — <title>
 Question: … | Options: A (rec) / B / C
 User answer: "<verbatim>"
 Consequence: … | Reversal condition: …
 ```
-Research decisions D1–D13 live in research file 07 §1 and `research/meta-hackathon-2026/LEDGER.md`. New entries start at D-14.
+Research decisions D1–D20 live in research file 07 §1 and `research/meta-hackathon-2026/LEDGER.md`. New entries start at D-21.
 
 ## §4 Writer / reviewer, and the red-team loop
 1. **Writer** (either agent) implements the approved spec, runs the acceptance command, and logs `verify`.
-2. **Reviewer** is the other tool. It reads the spec, the diff and the verification output. Checks:
+2. **Reviewer** is the other tool. It reads the spec, `git diff` and the verification output. Checks:
    - correctness
    - security and secrets
    - prompt-injection paths
@@ -76,8 +76,10 @@ Do not use self-review in place of the cross-tool review on: the budget broker, 
 **Red-team loop (product, scope, threshold or governance decisions):**
 1. A fresh subagent with no stake in the proposal attacks it: wrong facts, missed prior art, rule breaches, cost, schedule.
 2. The proposer answers each finding in a response file: ACCEPT, PARTIAL or DISPUTE, with evidence.
-3. Codex gets a counter-prompt to check the claims independently (it can read GitHub; Claude cannot).
-4. The user decides by MCQ, with the disputed points shown.
+3. Codex gets a counter-prompt to check the claims independently. Claude may also read public GitHub pages (D20), but the Codex check stays independent of Claude's reading. The prompt runs in two phases:
+   - Phase 1 is blind: Codex scores neutral candidate descriptions and commits only its output file before it opens any of Claude's files.
+   - Phase 2: Codex fact-checks the files against the commit SHA it recorded.
+4. The user decides by MCQ, with the disputed points shown. If the evidence cannot settle the question, the answer is INSUFFICIENT EVIDENCE plus the cheapest test that would settle it, not a default.
 
 ## §5 Definition of done
 - The acceptance command passed in this session, and its output is logged.
@@ -94,7 +96,9 @@ Do not use self-review in place of the cross-tool review on: the budget broker, 
 | Midday | Spend check against today's ceiling. Re-plan if a gate is at risk. |
 | End of day | The build runs end-to-end (or replay mode does). The user reconciles billing (§11). `STATE.md` is overwritten. The next day's gate is checked against `PLAN.md`. |
 
-The pre-registered gates live in `PLAN.md`: the Day-1 spike criteria (research file 10 §5) and the kill criteria (research file 07). When a gate fails, apply its stated action. Do not renegotiate the threshold.
+The pre-registered gates live in `PLAN.md`: the Day-1 probe criteria (research file 10 §5) and the kill criteria (research file 07). When a gate fails, apply its stated action. Do not renegotiate the threshold.
+- When the user approves the gates, log a `decision` line in `LOG.jsonl` with the SHA-256 of the gates table's text (computed with `python -I`).
+- Any later edit changes that hash, so it needs a new MCQ. `PLAN.md` edits are also set to `ask` in `.claude/settings.json`.
 
 ## §7 Demo protocol
 - Draft the storyboard on Day 4. Record a rough cut by Day 6, so a fallback recording always exists.
@@ -152,7 +156,7 @@ Unclassified "verified", "compliant", "certified" or "proof" never appears.
 Claude never commits. At session end, `STATE.md` ends with:
 ```
 ## Handoff
-Uncommitted: <path> (new|modified|deleted) — one line each, from this session's file edits (local read-only git for Claude is pending, QUESTIONS Q9)
+Uncommitted: <path> (new|modified|deleted) — one line each, from `git status --short` (Claude may run local read-only git, D15)
 Verified by: <command> → <result>
 Proposed commit: <type>(<FEATURES-id>): <subject ≤60 chars>
   <body: what, why, verification command>

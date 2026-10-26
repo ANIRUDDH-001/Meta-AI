@@ -125,7 +125,7 @@ The gap between their results is the accessibility barrier, located to the step 
   - GeoSpy geolocated photos from scene content in seconds and was publicly usable until 404 Media's report. Users asked it to track specific women (S-GEOSPY, THIRD-PARTY).
   - VLM-GEOPRIVACY (Feb 2026) reports that frontier models infer street-level locations from casual photos and often over-disclose (S-VLM-GEOPRIV).
   - VLMs infer private attributes from images at up to 77.6% accuracy (S-VLM-PAI).
-  - SAM 3.1 (March 2026) added multi-object tracking (F14; THIRD-PARTY, and the API docs state no track schema). It costs **$0.20 per 1K frames**, but SAM segments one object type per request (S-SEGMENT). Cost = clue types × fps × seconds × $0.0002. A 60 s clip with 6 types costs $2.16 at 30 fps, $0.72 at 10 fps and $0.36 at 5 fps (computed; corrected from "$0.36 at 30 fps", 12 RT01).
+  - SAM 3.1 (March 2026) added multi-object tracking (F14; THIRD-PARTY, and the API docs state no track schema). It costs **$0.20 per 1K frames**, but SAM segments one object type per request (S-SEG). Cost = clue types × fps × seconds × $0.0002. A 60 s clip with 6 types costs $2.16 at 30 fps, $0.72 at 10 fps and $0.36 at 5 fps (computed; corrected from "$0.36 at 30 fps", 12 RT01).
 - **Prior art.**
 
 | Work | Covers | Gap (hypothesis) |

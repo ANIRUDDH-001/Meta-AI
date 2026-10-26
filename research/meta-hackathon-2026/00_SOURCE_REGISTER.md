@@ -1,6 +1,6 @@
 # 00 — Rules and source register
 
-Round 1 retrieved 2026-10-26 from about 13:20 UTC (first saved capture 13:32 UTC by file mtime) to 14:24 UTC (last file mtime). Round 2 (audit response and pivot research) ran 16:42–16:58 UTC, taken from session transcript timestamps. Earlier wording said "13:20–16:30 UTC"; that was an estimate, not a clock reading (audit A19). Every source has a stable ID, and its full record is in [`sources.jsonl`](sources.jsonl) (106 records by `wc -l`). Raw quotes are in [`resources/source_captures.md`](resources/source_captures.md), and the running fact list is in [`LEDGER.md`](LEDGER.md) (F1–F56).
+Round 1 retrieved 2026-10-26 from about 13:20 UTC (first saved capture 13:32 UTC by file mtime) to 14:24 UTC (last file mtime). Round 2 (audit response and pivot research) ran 16:42–16:58 UTC, taken from session transcript timestamps. Earlier wording said "13:20–16:30 UTC"; that was an estimate, not a clock reading (audit A19). Every source has a stable ID, and its full record is in [`sources.jsonl`](sources.jsonl) (110 records by `wc -l` on 2026-10-26, after S-CC-SANDBOX, S-LOOKR and S-IMAGO were added; 107 when the red team counted, 12 RT26). Raw quotes are in [`resources/source_captures.md`](resources/source_captures.md), and the running fact list is in [`LEDGER.md`](LEDGER.md) (F1–F58).
 
 Evidence labels: **OBSERVED** · **PRIMARY-SOURCE CLAIM** · **THIRD-PARTY REPORT** · **INFERENCE** · **UNKNOWN/BLOCKED**.
 
@@ -82,6 +82,6 @@ PDF accessibility market: S-ALLYANT, S-ALLYANT-PR, S-ALLYANT-AI, S-CL-USERVERIFY
 Research: S-ASSETS25, S-ITAG, S-PAVE, S-ARXIV-MATHML, S-STEM-ALT, S-RODENT, S-FAILBENCH, S-DQA, S-INFOEQ-SEARCH.
 Agentic accessibility testing (file 10, C3): S-TASKAUDIT, S-AXNAV, S-AGENTIC-AUDIT, S-AAA-AUDIT, S-SCREENAUDIT, S-USERSIDE-REPAIR, S-TESTSPRITE, S-BROWSERSTACK-A11Y, S-GUIDEPUP, S-WEBAIM-2026, S-DEQUE-57.
 Video privacy (file 10, C4): S-GEOSPY, S-VLM-GEOPRIV, S-VLM-PAI, S-VLM-SHIELD, S-YT-BLUR, S-BGBLUR, S-IG-INDIA, S-WHO-DISAB.
-Other domains: S-3PLAY, S-VERBIT, S-AIMEDIA, S-RECAP, S-REDACT-COST, S-ISED, S-PIMLOC, S-AXON, S-FACIT, S-FISH, S-REL, S-SOP, S-GAUGE, S-CMMS.
+Other domains: S-3PLAY, S-VERBIT, S-AIMEDIA, S-RECAP, S-REDACT-COST, S-ISED, S-PIMLOC, S-AXON, S-FACIT, S-FISH, S-REL, S-SOP, S-GAUGE, S-CMMS, S-LOOKR, S-IMAGO.
 Agents and market: S-OPENAI-ATLAS, S-ROSELLI, S-INFOWORLD, S-GARTNER, S-GAO, S-SILKTIDE-ALT.
-Engineering governance: S-CODEX, S-CODEX-CONFIG, S-CC-MEM, S-CC-MEMORY, S-CC-HOOKS, S-CC-BP, S-ANTH-HARNESS, S-WEASY, S-HACK-TIPS.
+Engineering governance: S-CODEX, S-CODEX-CONFIG, S-CC-MEM, S-CC-MEMORY, S-CC-HOOKS, S-CC-BP, S-CC-PERMS, S-CC-SANDBOX, S-ANTH-HARNESS, S-WEASY, S-HACK-TIPS.

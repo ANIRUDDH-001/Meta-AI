@@ -160,7 +160,7 @@ Story spine: **a harm you can hear → a deadline → a regulator that does not 
   - Wonder $90
   - demo runs $30
   - reserve $80
-  - budget guard stops at $120 per account
+  - budget guard stops at $120 per account (superseded by the proposed $100 cap, 09 §3.4)
 - **Customer pricing hypothesis** (not evidence): $0.50–2 per page against $3–25 manual. Inference cost is under 10% of price. Human review time stays with the customer's own staff.
 
 ### 1.8 Acquisition path (hypotheses)

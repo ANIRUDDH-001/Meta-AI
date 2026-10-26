@@ -7,5 +7,7 @@
 - Between unrelated tasks, update `STATE.md` and then `/clear`. `STATE.md` is the handoff, not the chat history.
 - The `SessionStart` hook prints `STATE.md` into context. Don't read it again unless it has changed.
 - A permission rule or hook blocked an action: report it to the user. Don't retry it in a different form.
-- Git writes, `gh`, GitHub web fetches and GitHub MCP are denied in `.claude/settings.json`. Deny rules miss `sh -c`, full-path calls and other shells; the rule still applies there. End with the `STATE.md` handoff (PROTOCOLS §12).
+- Git writes, `gh`, the GitHub API, shell fetches of GitHub and the GitHub MCP are denied in `.claude/settings.json`. Local read-only git (D15) and WebFetch reads of public GitHub pages (D20) are allowed.
+- Deny rules miss `sh -c`, full-path calls and other shells, and the sandbox does not run on native Windows (S-CC-SANDBOX). The rule still applies there. A PreToolUse hook that allows only read-only git is drafted at governance install.
+- End with the `STATE.md` handoff (PROTOCOLS §12).
 - Scoped rules live in `.claude/rules/*.md` with `paths:` frontmatter and load only for matching files. Add one only after the user approves it.

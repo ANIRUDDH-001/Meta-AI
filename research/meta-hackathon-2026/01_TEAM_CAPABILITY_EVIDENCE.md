@@ -8,7 +8,7 @@
 |---|---|---|
 | Builders | 2, both accepted | supplied fact |
 | Stated availability | 8+ h/day each | supplied fact (stated, not verified) |
-| Window | Now (2026-10-26 ~22:00 IST) → internal submit 2026-11-04 22:00 IST = 9.0 days | computed (R1 in file 00) |
+| Window | Now (2026-10-26 ~22:00 IST, an estimate, not a clock reading) → internal submit 2026-11-04 22:00 IST = 9.0 days. The guide's building period is Oct 27 – Nov 4 (p4): 9 build days | computed (R1 in file 00) |
 | Hard deadline | 2026-11-05 07:30 IST | VERIFIED + computed |
 | Person-hours at 8 h/day | 2 × 8 × 9 = **144 ph** | computed |
 | Person-hours at 12 h/day | 2 × 12 × 9 = 216 ph | computed. Upside only: do not plan on it. |
@@ -31,7 +31,7 @@ Planning rule: **plan on 144 ph** and treat extra hours as buffer, not scope. Re
 ## 3. Money budget (₹0 extra cash)
 
 - Credits: up to $300 if both accounts post $150. Each call needs a card on the account, and the spend limit only notifies (R15).
-- Required control: a **code-level budget guard**. Every Meta call goes through one client that checks a running cost ledger and refuses calls once projected spend passes a hard stop (proposal: $120 per account, leaving a $30 margin for pricing or rounding surprises). This is an engineering decision for approval, not a rule.
+- Required control: a **code-level budget guard**. Every Meta call goes through one client that checks a running cost ledger and refuses calls once projected spend passes a hard stop (proposal: $120 per account, leaving a $30 margin for pricing or rounding surprises; superseded by the proposed $100 cap, 09 §3.4). This is an engineering decision for approval, not a rule.
 - Contributor mode (about 12× cheaper on Spark) may be used only for **public, licensed** test documents, because contributor content "may be used" for training (S-MODELS).
 
 ## 4. Delivery demand vs capacity for the recommended product (INFERENCE)
@@ -44,7 +44,7 @@ Estimate for Parity's competition kernel (file 04):
 | Ingest + Spark page-understanding schema | 18 | Medium |
 | Tagged-PDF writer (pikepdf structure tree) + HTML/MathML twin | 30 | **High**: the main technical risk (K3) |
 | veraPDF harness + verifiers V2–V5 | 24 | Medium |
-| Review UI + proof report | 22 | Medium |
+| Review UI + evidence report | 22 | Medium |
 | Wonder "screen-reader tester" (stretch) | 10 | High; can be replaced by the scripted fallback |
 | Demo recording, editing, README, new-work disclosure | 16 | Low |
 | Buffer | 8 | — |

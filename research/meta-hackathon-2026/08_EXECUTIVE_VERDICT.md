@@ -164,7 +164,7 @@ All of this needs user approval:
 | No participant profiles, repositories, projects, backgrounds or interests inspected or used | **PASS** | No GitHub or profile URL was fetched. `01` records capacity only. The GitHub MCP failed to connect and was not used. |
 | Ideas came from external problem evidence | **PASS** | All 13 hypotheses in `02` cite external demand sources. Four were screened at desk stage only, and this is disclosed (F36). |
 | Serious commercial alternatives and non-AI workarounds checked | **PASS** | `03`: 14 parity rows, including manual vendors and in-house tooling; the Allyant brochure was read |
-| Every number and capability claim has provenance and uncertainty | **PASS, with disclosed gaps** | Source IDs in `sources.jsonl` (78 lines at this snapshot; 106 after round 2 by `wc -l`). Scores labeled INFERENCE ±1. Unverified products listed (F35). |
+| Every number and capability claim has provenance and uncertainty | **PASS, with disclosed gaps** | Source IDs in `sources.jsonl` (78 lines at this snapshot; 110 by `wc -l` on 2026-10-26 after the red-team response). Scores labeled INFERENCE ±1. Unverified products listed (F35). |
 | Advantage and novelty are hypotheses | **PASS** | §3 table A1–A5, each with a falsifier. `03` §1.5. |
 | Zero paid usage, product changes or implementation | **PASS** | No Meta API call, no install, no account, no form, no message, no commit. Only research files and one local text extraction of a downloaded brochure. |
 | Meta functionality central; capabilities and credits not assumed | **PASS** | §4. Wonder, SAM and Glimmer use is marked UNTESTED or conditional. The credits need a card and are checked on Day 0. |

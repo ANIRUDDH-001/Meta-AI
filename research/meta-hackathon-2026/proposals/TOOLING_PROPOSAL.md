@@ -47,7 +47,8 @@ Each item needs a yes or no. The reasons are given so that each one can be chall
 4. **Hard gates as permission rules, not prose.** Instruction files are context, not enforcement (S-CC-MEMORY), and hooks are not hard enforcement (S-CC-HOOKS). That is why `.claude/settings.json` uses `deny` / `ask` rules.
    - **Limit:** a `Read(.env)` deny covers built-in file tools, not a shell `cat`. Keeping keys out of the shell environment is the real protection.
    - **Limit:** Bash and PowerShell rules match the command text after compound commands are split. They miss the same program called by full path or inside `sh -c` (S-CC-PERMS). The drafts add `git -C *` variants; the AGENTS rule still binds where a pattern misses.
-   - **Choice for Q9:** if Claude gets no local git at all, replace the git deny list with one `Bash(git *)` / `PowerShell(git *)` deny. That is simpler and closes the `-C` and `-c` gaps.
+   - **Q9 is answered** (D15, "claude can read only"): Claude keeps local read-only git, so a blanket `git *` deny is out (deny beats allow). The deny list names write subcommands instead (12 RT16).
+   - **Limit:** the sandbox does not run on native Windows (S-CC-SANDBOX), so it cannot close these gaps. The fix is a PreToolUse hook that allows only read-only git subcommands, rejects `-c`, `--git-dir` and aliases, and rejects GitHub hosts in browser tool inputs. It is code, so it is drafted with tests at governance install.
 5. **Pre-registered thresholds** (file 06). A failed gate triggers its stated action. It is never renegotiated.
 6. **Rough-cut demo recorded by Day 6.** A fallback always exists (S-HACK-TIPS).
 7. **`/doctor prompt-audit`** after each governance change. It checks the instruction files for stale paths and contradictions (S-CC-MEMORY; needs v2.1.283+).
@@ -62,7 +63,7 @@ Each item needs a yes or no. The reasons are given so that each one can be chall
 
 | Use? | Plugin | Source | Why |
 |---|---|---|---|
-| **Yes, at scaffold (rec)** | Security Guidance | Anthropic tier; `anthropics/claude-plugins-official` `plugins/security-guidance` | Warns on edits and reviews diffs for injection, SSRF and hard-coded secrets. Our highest-impact risk is a leaked key (07). **Cost:** its Stop hook runs a model diff review each turn, which uses Claude usage (not Meta credit) and adds latency. The install card was shown to the user; the user enables it. |
+| **Installed (D16)** | Security Guidance v2.0.16 | Anthropic tier; `claude-plugins-official` marketplace | Warns on edits and reviews diffs for injection, SSRF and hard-coded secrets. Our highest-impact risk is a leaked key (07).<br>**Installed** at local scope for `D:\Projects\Meta AI` (`.claude/settings.local.json`, mtime 2026-10-26T17:37:43Z) after the user said "you may install". Active from the next session.<br>**Cost:** the Stop hook sends each turn's diff to the newest Opus. The README's example review is `est_cost_usd=0.1930` at list prices; on a subscription it counts against usage limits.<br>**Side effect:** at SessionStart it builds a venv at `~/.claude/security/agent-sdk-venv` and installs the Agent SDK.<br>**Off switches:** `SECURITY_GUIDANCE_DISABLE=1` (whole plugin) or `ENABLE_STOP_REVIEW=0` (Stop review only). |
 | **No (rec)** | playwright (MCP) | Microsoft, listed in the official directory | The installed `playwright-cli` skill already covers browser checks. A second browser driver duplicates it and costs more context (INFERENCE). |
 | Not proposed | DemoDay, devrunway, securitymaxxing, E2E Test Generator | Community tier | Not official sources. DemoDay is also macOS-only and uses paid fal.ai. |
 

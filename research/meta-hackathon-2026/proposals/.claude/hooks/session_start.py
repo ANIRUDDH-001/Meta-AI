@@ -12,7 +12,7 @@ if state.exists():
 
 log = ledger / "LOG.jsonl"
 if log.exists():
-    tail = log.read_text(encoding="utf-8").splitlines()[-5:]
+    tail = log.read_text(encoding="utf-8").splitlines()[-20:]
     if tail:
         print("\nLast LOG.jsonl lines:")
         print("\n".join(tail))

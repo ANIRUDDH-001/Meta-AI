@@ -26,7 +26,7 @@
 | D5 | Approval granularity: per-task spec approval through MCQ | PROPOSED | User | Governance draft | User preference |
 | D6 | Install governance drafts (CLAUDE.md / AGENTS.md) | PROPOSED | User | `proposals/` | — |
 | D7 | **Pivot gate.** If E3 <0.70, or both K1 and K2 fail, or the Allyant report already does per-check human-judgment evidence → switch to redaction (finalist 2) on Day 2. **Desk check done 2026-10-26: partial overlap.** A Title-II-positioned "PDF Document Validation Report" with "passed, failed, and warning issues" exists, plus a "System of Record" (S-ALLYANT-AI). Whether it carries evidence for the 47 human-judgment checks is still UNKNOWN. That can only be settled by inspecting the 7-day trial, which needs an account the user creates (prohibited for the agent) | PROPOSED | User | File 05 §2; S-ALLYANT-AI | Trial shows judgment-check evidence → pivot |
-| D8 | Budget guard in code, with a hard stop of $120 per account | PROPOSED | User | R15 (notification only) | — |
+| D8 | Budget guard in code, with a hard stop of $120 per account (superseded by the proposed $100 cap, 09 §3.4) | PROPOSED | User | R15 (notification only) | — |
 | D9 | No PyMuPDF (AGPL) in the shipped product; use pypdfium2 | PROPOSED | User | Licensing | If the repo license is AGPL anyway |
 | D10 | Contributor mode only for licensed or synthetic fixtures | PROPOSED | User | S-MODELS (training use) | — |
 | X1 | Fisheries EM | REJECTED | Research | No public labeled footage with rights (R6) | Rights-clean dataset found |
@@ -124,10 +124,12 @@
 
 | Day | Date | Gate |
 |---|---|---|
-| 0 | Oct 26–27 | Approvals, credits/card check, Allyant report inspection, repo + governance install |
-| 1 | Oct 28 | E3, E4, E1, E2 → pivot gate D7 |
+| 0 | Oct 26 | Approvals, credits/card check, Allyant report inspection, repo + governance install |
+| 1 | Oct 27 (corrected from "Oct 28"; 12 RT07) | E3, E4, E1, E2 → pivot gate D7. Superseded by the probes in 10 §5 |
 | 2–3 | Oct 29–30 | Walking skeleton end-to-end (ingest → Spark → writer → veraPDF → report) |
 | 4 | Oct 31 | K3 decision; review UI |
 | 5–6 | Nov 1–2 | Verifiers, Information Parity, Wonder (K5 Day 6); **feature freeze Nov 2 23:59** |
 | 7 | Nov 3 | Record and edit the demo; README; new-work ledger |
 | 8 | Nov 4 | Buffer; submit by 22:00 IST (hard deadline Nov 5 07:30 IST) |
+
+> **Correction (2026-10-26, 12 RT07):** the building period is Oct 27 – Nov 4 (guide p4), so there are 9 build days and Day 1 is Oct 27. Days 2–8 above are the Parity-only plan, one day late against the corrected Day 1. They are re-planned only if Parity-PDF is chosen. The current Day-1 plan is 10 §5 and `proposals/docs/ledger/PLAN.md`.

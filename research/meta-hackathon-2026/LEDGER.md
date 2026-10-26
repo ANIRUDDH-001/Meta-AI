@@ -13,6 +13,7 @@ Raw quotes/numbers live in `resources/source_captures.md`. Final deliverables ar
 - (Message 3) Install needed skills from official sources and use them proactively. Reason, research and back every claim. Pivot now if confidence is elsewhere; red-team with an independent subagent; then give Codex a counter-prompt. Iterate on user approval.
 - (Message 4) Look at Indian defence or development needs, "just a reference / no boundation".
 - Process rules adopted after audit A19: timestamps only from `date -u` or file/transcript timestamps; counts only from a command.
+- (Message 5, 2026-10-26T17:28:27Z) The user pasted ChatGPT's review of the Codex prompt and said: "now reason and finalise the prompt / also codex can commit / claude can read only / you may install / and should i run the prompt as soon as you revert or after the red team revert ?" Recorded as D14–D16. The prompt is rewritten in two phases (`CODEX_COUNTER_PROMPT.md`).
 
 ## Verified facts (see captures for quotes)
 | # | Fact | Label | Source |
@@ -61,7 +62,7 @@ Raw quotes/numbers live in `resources/source_captures.md`. Final deliverables ar
 | F42 | NFB sued DOJ and HHS on 2026-05-21 (D. Md.) over the extensions; no ruling found. HHS §504 deadline 2027-05-11 | THIRD-PARTY | S-NFB-SUIT |
 | F43 | ASSETS'25 protocol: 35 base PDFs (5 per criterion) → 125 variants; 7 criteria mapped to WCAG 2.2 SC + PDF/UA; temp 0.7, 3 runs, page-level, most conservative label; inputs withheld to make Cannot Tell; Not Present accuracy 0.55 (best) to 0 (Llama); no licence in paper | PRIMARY-SOURCE CLAIM | S-ASSETS25 |
 | F44 | MathML inside PDF needs PDF 2.0 (PDF/UA-2); under PDF/UA-1, math = `Formula` + alt text. So MathML holds only in an HTML twin if AT1 gates on PDF/UA-1 | PRIMARY-SOURCE CLAIM | S-PDFA-MATH |
-| F45 | Voice Transcribe gives turn-level timestamps, **no word-level**; Spark audio input "not fully reliable"; no Meta TTS | PRIMARY-SOURCE CLAIM | S-MODELS |
+| F45 | Voice Transcribe gives turn-level timestamps, **no word-level**; Spark audio input is "currently not fully supported" (verbatim; corrected from a paraphrase, 12 RT32); no Meta TTS | PRIMARY-SOURCE CLAIM | S-MODELS |
 | F46 | TaskAudit (CHI 2026): vision-free agents via a TalkBack proxy on Android; 48 errors on 54 screens vs 4–20 for existing checkers; 96% task success when no errors | PRIMARY-SOURCE CLAIM | S-TASKAUDIT |
 | F47 | Prior art also: AXNav (iOS VoiceOver replay, CHI 2024), ScreenAudit (mobile), AAA (WCAG-EM copilots, AAAI 2026) | PRIMARY-SOURCE CLAIM | S-AXNAV, S-SCREENAUDIT, S-AAA-AUDIT |
 | F48 | Agentic web auditing (arXiv 2609.09379): 40 WCAG requirements, recall 86% vs axe-core 36%, precision 56%; 9/10 keyboard traps | PRIMARY-SOURCE CLAIM | S-AGENTIC-AUDIT |
@@ -114,18 +115,36 @@ IDs D1–D10 are the same decisions as in file 07 §1. New IDs continue from D11
 - D3 (PENDING user MCQ): product. 07's D3 (Parity) is reopened by the pivot candidates; see D13.
 - D4 (USER, 2026-10-26): **Indie track** — "yes we are allowed for indie. we are not a startup".
 - D5, D6 (07: approval granularity, governance install): still PROPOSED, pending MCQ.
-- D11 (USER): Claude never commits or touches GitHub; the user or Codex commits.
+- D11 (USER): Claude never commits or touches GitHub; the user or Codex commits. Narrowed by D15 (local read-only git) and D20 (public GitHub page reads).
 - D12 (CLAUDE, evidence-based): Indian defence **rejected** (S-PG "anything political or involving war"); Indian development needs folded into pivot candidate C3 (file 10 §2).
-- D13 (PENDING user MCQ): pivot from Parity-PDF to C3 (blindfolded web agent) or C4 (video privacy guard), decided by a Day-1 spike (file 10 §5). Supersedes 07's D7 (Parity pivot gate), which stays as history.
+- D13 (PENDING user MCQ): pivot from Parity-PDF to C3 (blindfolded web agent) or C4 (video privacy guard). Supersedes 07's D7 (Parity pivot gate), which stays as history.
+  - **Revised after the red team (file 12):** the C4 lean and "desk favourite" are withdrawn. Day-1 feasibility probes V1–V4 and W1–W3 replace the spikes, under a symmetric rule with an INSUFFICIENT EVIDENCE outcome (file 10 §5, `proposals/docs/ledger/PLAN.md`).
+- D14 (USER, 2026-10-26T17:28:27Z): "codex can commit". Codex runs `git commit` when the user tells it to in that session. Push, merge, tag, release and deploy stay with the user (Q11, answered by D19).
+- D15 (USER, same message): "claude can read only". Claude may run local read-only git (`status`, `diff`, `log`, `show`). Public GitHub reads: Q12, answered by D20.
+- D16 (USER, same message: "you may install"): the **Security Guidance** plugin v2.0.16 from `claude-plugins-official` is installed at local scope for `D:\Projects\Meta AI` (`.claude/settings.local.json` mtime 2026-10-26T17:37:43Z). Active from the next session. Off switch: `SECURITY_GUIDANCE_DISABLE=1`; `ENABLE_STOP_REVIEW=0` turns off only the Stop review.
+- D17 (USER, MCQ answered before 18:49:02Z, the next `date -u`): product path **"Wait for Codex first"**. Everything holds until Codex's file 13 is in: no probes, no metered calls. The forced-decision stop (end of 2026-10-28 IST) is unchanged.
+  - Conflict, asked back to the user: the D18 option text said "$0 parts (W1, filming) can start meanwhile", while D17 holds everything. Until the user answers, Claude holds everything.
+- D18 (USER, same MCQ): probe thresholds **"Freeze after Codex"**. Freeze once Codex's Phase 2 fixes are applied; log the SHA-256 of the gates table then (PROTOCOLS §6). Later edits need a new MCQ.
+- D19 (USER, same MCQ; answers Q11): **"Codex commits when told"**. AGENTS line 9 now says: commits by the user, or by Codex when the user tells it to in that session; push, merge, tag, release and deploy by the user only; Claude never runs any of them. The earlier line 9, verbatim: "Any `git commit`, `push`, `merge`, `tag`, release or deploy will be done by user only and claude is not allowed to ever access it."
+- D20 (USER, same MCQ; answers Q12): **"Yes, public reads only"**. Claude may read public pages on github.com and githubusercontent.com through WebFetch, without signing in. Still denied: any GitHub write, `gh`, `api.github.com`, `uploads.github.com`, `*.github.io`, the GitHub MCP, and shell fetches (curl, wget, Invoke-WebRequest). Narrows D11.
 
 ## Audit and corrections log
 | When (UTC) | What | Where |
 |---|---|---|
 | 16:09:24 | ChatGPT audit snapshot `01ee5bb` (23 findings) | external file |
-| ~16:51 | Response written: 16 ACCEPT, 4 PARTIAL, 1 DISCLOSED, 1 UNVERIFIABLE, 2 severity disputes | 09 |
+| 16:52:42 (transcript; was "~16:51") | Response written: 16 ACCEPT, 4 PARTIAL, 1 DISCLOSED, 1 UNVERIFIABLE, 2 severity disputes | 09 |
 | 16:58 | Pivot brainstorm written | 10 |
 | 17:05 | S-META-AUP is the Llama 2-labelled page; defence rejection now rests on S-PG | 09 §5, 10, 00 R24 |
 | 17:05 | Capture-time estimates (~16:40, ~16:55) replaced by file mtimes; 00 retrieval window corrected; Matterhorn 1.1 cited | 00, captures |
+| 17:22:39–17:35:14 | Red team (fresh subagent): 40 findings RT01–RT40; verdict "leaving Parity is defensible; lean C4 does not survive" | 11 |
+| 17:28:27 | User message 5: ChatGPT's review of the Codex prompt (6 improvements), plus D14–D16 | this ledger |
+| 17:43:38 | Response: 34 ACCEPT, 6 PARTIAL, 0 DISPUTE; C4 lean withdrawn; re-score C3 8.23, C4 8.10 | 12 |
+| 17:47:51–18:36:29 | **Claude's own error corrected (RT07):** Day 1 is 2026-10-27, not 10-28; build time 144 h, not 128 h. Applied in 07, 09, 10, PLAN. Fixes from 12 applied to 00, 01, 04, 08, LEDGER and the governance drafts | 07, 09, 10, proposals |
+| 18:39:35 (transcript) | **Claude's slip corrected:** file 10 cited three IDs missing from sources.jsonl. The earlier ID scan covered only `proposals/`. S-SEGMENT → S-SEG; S-LOOKR and S-IMAGO registered; 110 records | 10, sources.jsonl, 00, 08 |
+| 18:41:33 (file mtime) | Codex prompt rewritten: two phases, blind Phase 1 committed first, SHA pinned, licence/probe/rule scrutiny, UNDETERMINED allowed | CODEX_COUNTER_PROMPT.md |
+| 18:49:02 onward | User MCQ answers D17–D20 recorded. AGENTS line 9 reworded (D19). The settings draft's WebFetch GitHub denies narrowed to the API, uploads and github.io (D20) | LEDGER, proposals |
+| 18:43:41 | `meta details 2.pdf` read as 0 bytes, tracked as the empty blob `e69de29` | repo root |
+| 18:53:46 | **That finding is outdated.** By 18:51 the file was 3,536,269 bytes and staged by the user (mtime 2026-10-26T16:26:58Z, earlier than the 0-byte reading; how it changed is unknown). MEASURED with `pypdf` image hashes: 11 pages, no fonts; pages 2–3 and 7–11 identical to `meta details.pdf`; the images new on pages 4–6 are layout fragments (an "Event Details" heading, two icons, 7-px strips); page 1 only lost images. No new rule text found | repo root, CODEX_COUNTER_PROMPT.md |
 
 ## Open questions for organizers (cannot send messages; user to ask in Discord #questions)
 - Q1 ANSWERED by the user: Indie (D4). Track question closed.
@@ -134,6 +153,7 @@ IDs D1–D10 are the same decisions as in file 07 §1. New IDs continue from D11
 - Q4 Does "live product" require a publicly hosted deployment judges can access?
 - Q5 (for user) GPU with ≥24 GB VRAM available? Decides whether Muse Glimmer can be self-hosted (open-weights bonus).
 - Q6 (for user) Who adds the credit card to the Meta API account? It is required for any call (F7); spend limit is only a notification → code-level budget guard mandatory.
+- Q7–Q12 live in `proposals/docs/ledger/QUESTIONS.md`. Answered: Q8 (D14), Q9 (D15), Q11 (D19), Q12 (D20). Open there: Q7, Q10.
 
 ## Governance drafts (2026-10-26, UNAPPROVED)
 - Written to `proposals/` (README has the install map): AGENTS.md (89 lines, single rule source), CLAUDE.md (`@AGENTS.md` + Claude-only), PROTOCOLS.md (MCQ format, task spec, ledger schemas, writer/reviewer, DoD, cadence, demo, incidents, token economy), ledger templates, `.claude/settings.json` (deny/ask permission rules + SessionStart hook), `.codex/config.toml` (on-request / workspace-write), TOOLING_PROPOSAL.md.
@@ -144,4 +164,4 @@ IDs D1–D10 are the same decisions as in file 07 §1. New IDs continue from D11
   - PROTOCOLS.md has §1–§12: usefulness-not-count MCQs; PLAN.md and CODEMAP.md rows; red-team loop; daily re-check of reversing facts; §10 evidence classes and L0–L4; §11 budget broker at $100; §12 handoff block.
   - settings.json has 49 deny and 24 ask rules: Claude git writes, `gh`, GitHub WebFetch domains and GitHub MCP denied (S-CC-PERMS); known gap: full-path and `sh -c` calls.
   - New templates: `docs/ledger/PLAN.md` (pre-registered S-W, S-V, D13 gates), `docs/CODEMAP.md`. QUESTIONS gains Q8–Q10. FEATURES AT5/AT6 reworded.
-  - Fixed: LEDGER/07 decision-ID clash (now D11–D13); Day-1 date conflict (10 said 10-27, 07 said 10-28; now 10-28) and the spike time share (9.4–12.5%, computed).
+  - Fixed: LEDGER/07 decision-ID clash (now D11–D13); Day-1 date conflict (10 said 10-27, 07 said 10-28; now 10-28) and the spike time share (9.4–12.5%, computed). **That fix was wrong (12 RT07):** the guide says "Building period: Oct 27 – Nov 4" (p4), so Day 1 is 10-27 and build time is 144 h. Corrected in 07, 09, 10 and PLAN.
